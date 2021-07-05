@@ -1,19 +1,31 @@
 package com.peerlender.lendingengine.domain.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public final class User {
 
-    private final String firstName;
-    private final String lastName;
-    private final int age;
-    private final String occupation;
+    @Id
+    private long id;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String occupation;
 
-    public User(String firstName, String lastName, int age, String occupation) {
+
+    public User(long id, String firstName, String lastName, int age, String occupation) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.occupation = occupation;
+    }
+
+    public User() {
     }
 
     public String getFirstName() {
